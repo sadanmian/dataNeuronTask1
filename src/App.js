@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Splitter, SplitterPanel } from "primereact/splitter";
+import { PrimeReactProvider } from "primereact/api";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <PrimeReactProvider>
+      <Splitter style={{ height: "100vh" }} layout="vertical">
+        <SplitterPanel size={50}>
+          <Splitter>
+            <SplitterPanel
+              className="flex align-items-center justify-content-center"
+              size={20}
+            >
+              Component 1
+            </SplitterPanel>
+            <SplitterPanel
+              className="flex align-items-center justify-content-center"
+              size={80}
+            >
+              Component 2
+            </SplitterPanel>
+          </Splitter>
+        </SplitterPanel>
+        <SplitterPanel
+          className="flex align-items-center justify-content-center"
+          size={50}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Component 3
+        </SplitterPanel>
+      </Splitter>
+    </PrimeReactProvider>
   );
 }
-
-export default App;
